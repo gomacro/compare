@@ -1,6 +1,6 @@
 # Compare
 
-Compare objects.
+Compare objects. Compare(a, b) = a - b
 
 * Returns 0 (equality) for a = b.
 * Returns - (negative) for a < b.
