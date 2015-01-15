@@ -8,7 +8,7 @@ Compare objects.
 
 # Go get
 
-  go get github.com/gomacro/compare
+	go get github.com/gomacro/compare
 
 # Import
 
