@@ -7,6 +7,7 @@ package compare
 
 import (
 	"math"
+	"math/cmplx"
 )
 
 // compare.Uint8 compares two numbers.
@@ -16,6 +17,7 @@ import (
 func Uint8(a, b *uint8) int {
 	return int(*a) - int(*b)
 }
+
 // compare.Uint16 compares two numbers.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
@@ -23,6 +25,7 @@ func Uint8(a, b *uint8) int {
 func Uint16(a, b *uint16) int {
 	return int(*a) - int(*b)
 }
+
 // compare.Int8 compares two numbers.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
@@ -30,6 +33,7 @@ func Uint16(a, b *uint16) int {
 func Int8(a, b *int8) int {
 	return int(*a) - int(*b)
 }
+
 // compare.Int16 compares two numbers.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
@@ -37,6 +41,7 @@ func Int8(a, b *int8) int {
 func Int16(a, b *int16) int {
 	return int(*a) - int(*b)
 }
+
 // compare.Int32 compares two numbers.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
@@ -44,13 +49,15 @@ func Int16(a, b *int16) int {
 func Int32(a, b *int32) int {
 	return int(*a) - int(*b)
 }
+
 // compare.Int compares two numbers.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
 // Returns + (positive) for a > b.
 func Int(a, b *int) (r int) {
-	*a - *b
+	return *a - *b
 }
+
 // compare.Byte compares two numbers.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
@@ -58,6 +65,7 @@ func Int(a, b *int) (r int) {
 func Byte(a, b *byte) int {
 	return int(*a) - int(*b)
 }
+
 // compare.Rune compares two numbers.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
@@ -65,6 +73,7 @@ func Byte(a, b *byte) int {
 func Rune(a, b *rune) int {
 	return int(*a) - int(*b)
 }
+
 // compare.Uint32 compares two numbers.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
@@ -76,6 +85,7 @@ func Uint32(a, b *uint32) (r int) {
 	}
 	return int(*a) - int(*b)
 }
+
 // compare.Uint64 compares two numbers.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
@@ -91,6 +101,7 @@ func Uint64(a, b *uint64) (r int) {
 	}
 	return int(*a) - int(*b)
 }
+
 // compare.Int64 compares two numbers.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
@@ -102,6 +113,7 @@ func Int64(a, b *int64) (r int) {
 	}
 	return int(*a) - int(*b)
 }
+
 // compare.Float32 compares two numbers.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
@@ -111,6 +123,7 @@ func Float32(a, b *float32) int {
 	rr := int32(math.Float32bits(r))
 	return int(rr)
 }
+
 // compare.Float64 compares two numbers.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
@@ -124,6 +137,7 @@ func Float64(a, b *float64) int {
 	}
 	return int(r)
 }
+
 // compare.Uint compares two numbers.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
@@ -139,13 +153,14 @@ func Uint(a, b *uint) (r int) {
 	}
 	return int(*a) - int(*b)
 }
+
 // compare.Abs compares two complex numbers by absolute value.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
 // Returns + (positive) for a > b.
 func Abs(a, b *complex128) int {
-	fa := math.Abs(*a)
-	fb := math.Abs(*b)
+	fa := cmplx.Abs(*a)
+	fb := cmplx.Abs(*b)
 	p := fa - fb
 	q := int64(math.Float64bits(p))
 	r := int(q >> 32)
@@ -154,11 +169,12 @@ func Abs(a, b *complex128) int {
 	}
 	return int(r)
 }
+
 // compare.Real compares two complex numbers by real part.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
 // Returns + (positive) for a > b.
-func Real(a, b *complex128) {
+func Real(a, b *complex128) int {
 	fa := real(*a)
 	fb := real(*b)
 	p := fa - fb
@@ -169,11 +185,12 @@ func Real(a, b *complex128) {
 	}
 	return int(r)
 }
+
 // compare.Imag compares two complex numbers by imaginary part.
 // Returns 0 for equality.
 // Returns - (negative) for a < b.
 // Returns + (positive) for a > b.
-func Imag(a, b *complex128) {
+func Imag(a, b *complex128) int {
 	fa := imag(*a)
 	fb := imag(*b)
 	p := fa - fb
