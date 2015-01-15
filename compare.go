@@ -84,3 +84,39 @@ func Uint(a, b *uint) (r int) {
 	}
 	return int(*a) - int(*b)
 }
+
+func Abs(a, b *complex128) int {
+	fa := math.Abs(*a)
+	fb := math.Abs(*b)
+	p := fa - fb
+	q := int64(math.Float64bits(p))
+	r := int(q >> 32)
+	if r != 0 {
+		return r
+	}
+	return int(r)
+}
+
+func Real(a, b *complex128) {
+	fa := real(*a)
+	fb := real(*b)
+	p := fa - fb
+	q := int64(math.Float64bits(p))
+	r := int(q >> 32)
+	if r != 0 {
+		return r
+	}
+	return int(r)
+}
+
+func Imag(a, b *complex128) {
+	fa := imag(*a)
+	fb := imag(*b)
+	p := fa - fb
+	q := int64(math.Float64bits(p))
+	r := int(q >> 32)
+	if r != 0 {
+		return r
+	}
+	return int(r)
+}
