@@ -1,26 +1,17 @@
 # Compare
 
+[![GoDoc](https://godoc.org/github.com/gomacro/compare?status.svg)](https://godoc.org/github.com/gomacro/compare)
+
 Compare objects. Compare(a, b) = a - b
 
 * Returns 0 (equality) for a = b.
 * Returns - (negative) for a < b.
 * Returns + (positive) for a > b. 
 
-# Go get
+# Install
 
 	go get github.com/gomacro/compare
-
-# Import
-
-	"github.com/gomacro/compare"
-
-# Example
-
-N/A
-
-# Docs
-
-N/A
+	import "github.com/gomacro/compare"
 
 # License
 
