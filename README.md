@@ -17,4 +17,4 @@ Compare objects. Compare(a, b) = a - b
 
 GPLv2
 
-Version: v0.0
+Version: v0.1
