@@ -3,8 +3,11 @@
 // license that can be found in the LICENSE file.
 
 // Package compare provides a compare functions to compare two objects.
+//
 // Returns 0 for equality.
+//
 // Returns - (negative) for a < b.
+//
 // Returns + (positive) for a > b.
 package compare
 
